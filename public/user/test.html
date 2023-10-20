@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        main {
+            width: 100vw;
+            height: 100vh;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            width: 100vw;
+            height: 100vh;
+            background-color:darkslategrey;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            border:0px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        Hello
+        <button id="btn">Scroll</button>
+    </main>
+    <section id="section1">Hey</section>
+</body>
+<script>
+    const btnEle = document.getElementById("btn");
+    const sectionEl = document.getElementById("section1");
+    btnEle.addEventListener("click", () => {
+        let sectionCoordinate= sectionEl.getBoundingClientRect();
+
+        window.scrollTo({
+            left: sectionCoordinate.left + window.pageXOffset,
+            top: sectionCoordinate.top + window.pageYOffset,
+            behavior:"smooth"
+        });
+
+        // sectionEl.scrollIntoView({behavior:"smooth"})
+    });
+</script>
+</html>
